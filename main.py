@@ -7,10 +7,6 @@ from pathlib import Path
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Aplicatia Railway functioneaza ✅"}
-
 class AskRequest(BaseModel):
     message: str
 
