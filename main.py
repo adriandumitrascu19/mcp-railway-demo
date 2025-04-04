@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import openai
 import os
+from fastapi.responses import HTMLResponse
+from pathlib import Path
 
 app = FastAPI()
 
@@ -29,3 +31,10 @@ async def ask_ai(req: AskRequest):
 
     answer = response.choices[0].message["content"]
     return {"question": prompt, "answer": answer}
+
+
+@app.get("/", response_class=HTMLResponse)
+def serve_form():
+    form_path = Path(__file__).parent / "form.html"
+    content = form_path.read_text(encoding="utf-8")
+    return HTMLResponse(content=content, media_type="text/html")
