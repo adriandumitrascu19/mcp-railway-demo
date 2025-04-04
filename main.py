@@ -31,6 +31,4 @@ async def ask_ai(req: AskRequest):
 
 @app.get("/", response_class=HTMLResponse)
 def serve_form():
-    form_path = Path(__file__).parent / "form.html"
-    content = form_path.read_text(encoding="utf-8")
-    return HTMLResponse(content=content, media_type="text/html")
+    return FileResponse("form.html", media_type="text/html")
