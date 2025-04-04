@@ -7,50 +7,83 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.2">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ro"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Întreabă AI-ul&lt;/title&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body style="font-family: sans-serif; max-width: 600px; margin: 50px auto; padding: 2rem; background-color: #f9f9f9; border-radius: 12px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;🤖 Întreabă AI-ul meu&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;form id="ai-form"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="message"&gt;Scrie întrebarea ta:&lt;/label&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="message" rows="5" cols="60" required placeholder="Ce vrei să știi?"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button type="submit"&gt;Trimite&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h3&gt;Răspunsul AI:&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="response" style="white-space: pre-line; background: #e0e0e0; padding: 1rem; border-radius: 8px;"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const form = document.getElementById('ai-form');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const responseDiv = document.getElementById('response');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>form.addEventListener('submit', async (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const message = document.getElementById('message').value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>responseDiv.innerText = "Se trimite către AI...";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const res = await fetch('/ask', {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>headers: {'Content-Type': 'application/json'},</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body: JSON.stringify({ message })</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>responseDiv.innerText = data.answer || 'Eroare: ' + JSON.stringify(data);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="ro"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Întreabă AI-ul&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #f5f5f5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>textarea {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #007bff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#response {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #e0e0e0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>white-space: pre-line;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;🤖 Întreabă AI-ul meu&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;form id="ai-form"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;label for="message"&gt;Scrie întrebarea ta:&lt;/label&gt;&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="message" rows="4" required placeholder="Ce vrei să știi?"&gt;&lt;/textarea&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button type="submit"&gt;Trimite&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="response"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const form = document.getElementById('ai-form');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const responseDiv = document.getElementById('response');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>form.addEventListener('submit', async (e) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>e.preventDefault();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const message = document.getElementById('message').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>responseDiv.innerText = "Se trimite...";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const res = await fetch('/ask', {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>method: 'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>headers: {'Content-Type': 'application/json'},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>body: JSON.stringify({ message })</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const data = await res.json();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>responseDiv.innerText = data.answer || 'Eroare la AI.';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch (error) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>responseDiv.innerText = 'Eroare de rețea sau server.';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
